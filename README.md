@@ -68,7 +68,15 @@ Run the main script:
 python main.py
 ```
 
-Now, Ecoute will start transcribing your microphone input and speaker output in real-time, and provide a suggested response based on the conversation. It may take a couple of seconds to warm up before the transcription becomes real-time.
+For a better and faster version, use:
+
+```
+python main.py --api
+```
+
+Upon initiation, Ecoute will begin transcribing your microphone input and speaker output in real-time, generating a suggested response based on the conversation. Please note that it might take a few seconds for the system to warm up before the transcription becomes real-time.
+
+The --api flag significantly enhances transcription speed and accuracy, and it's expected to be the default option in future releases. However, keep in mind that using the Whisper API will consume more OpenAI credits than using the local model. This increased cost is attributed to the advanced features and capabilities that the Whisper API provides. Despite the additional cost, the considerable improvements in speed and transcription accuracy might make it a worthwhile investment for your use case.
 
 ### ⚠️ Limitations
 
@@ -76,7 +84,7 @@ While Ecoute provides real-time transcription and response suggestions, there ar
 
 **Default Mic and Speaker:** Ecoute is currently configured to listen only to the default microphone and speaker set in your system. It will not detect sound from other devices or systems. If you wish to use a different mic or speaker, you will need to set it as your default device in your system settings.
 
-**Whisper Model**: We utilize the 'tiny' version of the Whisper ASR model, due to its low resource consumption and fast response times. However, this model may not be as accurate as the larger models in transcribing certain types of speech, including accents or uncommon words.
+**Whisper Model**: If the --api flag is not used, we utilize the 'tiny' version of the Whisper ASR model, due to its low resource consumption and fast response times. However, this model may not be as accurate as the larger models in transcribing certain types of speech, including accents or uncommon words.
 
 **Language**: The Whisper model used in Ecoute is set to English. As a result, it may not accurately transcribe non-English languages or dialects. We are actively working to add multi-language support to future versions of the program.
 
