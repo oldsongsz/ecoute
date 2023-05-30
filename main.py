@@ -78,7 +78,8 @@ def main():
     speaker_audio_recorder = AudioRecorder.DefaultSpeakerRecorder()
     speaker_audio_recorder.record_into_queue(audio_queue)
 
-    model = TranscriberModels.get_model('--api' in sys.argv)
+    #model = TranscriberModels.get_model('--api' in sys.argv)
+    model = TranscriberModels.get_model(True)
 
     transcriber = AudioTranscriber(user_audio_recorder.source, speaker_audio_recorder.source, model)
     transcribe = threading.Thread(target=transcriber.transcribe_audio_queue, args=(audio_queue,))
